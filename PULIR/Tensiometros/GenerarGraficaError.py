@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
+import numpy as np
 
 # Cargar el archivo Excel
 archivo_excel = 'pulido.xlsx'
@@ -22,6 +23,7 @@ while fila_actual < len(df):
     print(datos_seleccionados)
     fig, ax = plt.subplots(figsize=(7.04, 4.07))  # Tamaño en pulgadas para obtener 2113x1220 píxeles a 300 DPI
     ax.scatter(datospatron, datos_seleccionados, c='#3d9bff')
+    ax.set_xticks(np.arange(min(datospatron), max(datospatron) + 1, 20))
     ax.set_ylim(calcular_limites_grafica(datos_seleccionados))
     ax.grid(True, which='both', linestyle='--', linewidth=0.5)
     ax.set_xlabel('PATRON')
