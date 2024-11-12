@@ -10,7 +10,7 @@ SCOPES = ["https://www.googleapis.com/auth/drive"]
 service = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
 file_urls = []
 folder_id = "1djp9T-XXYzJTBS9BH0rt7vmLxeAu0V9j"
-directory_files = r"C:\Users\Raven\Desktop\CODE\PULIR\Tensiometros\Reportes"
+directory_files = '/home/raven/CODE/PULIR/Tensiometros/Completos'
 file_names = os.listdir(directory_files)
 print(file_names)
 mime_types = ["application/pdf"]

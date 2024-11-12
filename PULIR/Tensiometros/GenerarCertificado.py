@@ -29,26 +29,27 @@ while True:
         break
     else:
         nocertificado = df.iat[fila_inicial, 7]
-        output_path = "PULIR/Tensiometros/Certificados/" + nocertificado + ".pdf"
+        output_path = "Certificados/" + nocertificado + ".pdf"
         background_image_path = "backCertificado.png"
-        tipo = str(df.iat[fila_inicial + 1, 0])
+        tipo = str(df.iat[fila_inicial, 0])
         marca = str(df.iat[fila_inicial + 1, 2])
+        print(marca)
         modelo = str(df.iat[fila_inicial + 2, 2])
-        serie = str(df.iat[fila_inicial + 2, 4])
+        serie = str(df.iat[fila_inicial + 1, 7])
         if str(df.iat[fila_inicial + 4, 2]) == "nan":
             inventario = "N.R"
         else:
             inventario = str(df.iat[fila_inicial + 4, 2])
         nombreEse = str(df.iat[1, 2])
         direccion = str(df.iat[3, 2])
-        ubicacion = str(df.iat[2, 7])
+        ubicacion = str(df.iat[fila_inicial + 2, 7])
         fecha = str(df.iat[1, 12])
         text_data = {
             "PRESION": (315, 595),
             tipo: (315, 575),
             marca: (315, 555),
             modelo: (315, 535),
-            "725971": (315, 515),
+            serie: (315, 515),
             inventario: (315, 495),
             "mmHg": (315, 475),
             "2": (315, 455),
@@ -57,7 +58,7 @@ while True:
             direccion: (315, 370),
             ubicacion: (315, 350),
             fecha: (315, 330),
-            "6": (315, 310)
+            "5": (315, 310)
         }
         create_pdf(output_path, background_image_path, text_data, nocertificado)
         fila_inicial += 19

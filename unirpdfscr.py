@@ -4,9 +4,9 @@ from PyPDF2 import PdfMerger
 # Rutas de las dos carpetas con los archivos PDF
 carpeta1 = 'C:\\Users\\Raven\\Desktop\\CUCAITA\\Termometros\\CERTIFICADOS'
 carpeta2 = 'C:\\Users\\Raven\\Desktop\\CUCAITA\\Termometros\\REPORTES'
-
+carpeta3 = 'C:\\Users\\Raven\\Desktop\\CUCAITA\\Termometros\\COMPLETOS'
 # Carpeta donde se guardarán los PDFs unidos
-carpeta_destino = 'C:\\Users\\Raven\\Desktop\\CUCAITA\\Termometros\\FINALES'
+carpeta_destino = '/home/raven/Desktop/'
 
 # Obtener la lista de archivos en ambas carpetas
 archivos_carpeta1 = os.listdir(carpeta1)

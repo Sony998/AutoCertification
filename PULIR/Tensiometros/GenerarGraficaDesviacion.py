@@ -6,10 +6,10 @@ import matplotlib.pyplot as plt
 archivo_excel = 'pulido.xlsx'
 fila_actual = 5
 df = pd.read_excel(archivo_excel, sheet_name="TENSIOMETROS", header=None)
-def calcular_limites_grafica(datos, errorpromedio):
-    errorpromedio = abs(errorpromedio)
-    error_max = datos.max() + errorpromedio
-    error_min = datos.min() - errorpromedio 
+def calcular_limites_grafica(datos, error_promedio):
+    error_promedio = abs(error_promedio)
+    error_max = datos.max() + error_promedio
+    error_min = datos.min() - error_promedio 
     limite_superior = error_max
     limite_inferior = error_min
     return limite_superior, limite_inferior
@@ -21,12 +21,12 @@ while True:
     nombrecertificado = df.iat[fila_actual, 7]
     datospatron = df.iloc[9, 1:7].astype(int)
     datos_seleccionados = df.iloc[fila_actual + 7, 1:7].astype(float)
-    errorpromedio = df.iloc[fila_actual + 8, 1].astype(float)
-    print(nombrecertificado, errorpromedio)
-    desviacionestandar = df.iloc[fila_actual + 9, 1].astype(float)
+    error_promedio = df.iat[fila_actual + 8, 1]
+    print(nombrecertificado, error_promedio)
+    desviacionestandar = df.iloc[fila_actual + 9, 1]
     errormaximo = max(datos_seleccionados) - desviacionestandar
     errorminimo = min(datos_seleccionados) + desviacionestandar
-    errores_promedio = np.full(len(datospatron), errorpromedio)
+    errores_promedio = np.full(len(datospatron), error_promedio)
     errores_superiores = errormaximo + datos_seleccionados  # Distancia al límite máximo
     errores_inferiores = datos_seleccionados + errorminimo  # Distancia al límite mínimo
     fig, ax = plt.subplots(figsize=(7.04, 4.07))  # Tamaño en pulgadas para obtener 2113x1220 píxeles a 300 DPI
@@ -51,7 +51,7 @@ while True:
         markersize=5,
         label="Error promedio",
     )
-    ax.set_ylim(calcular_limites_grafica(datos_seleccionados, errorpromedio))
+    ax.set_ylim(calcular_limites_grafica(datos_seleccionados, error_promedio))
     ax.set_xticks(np.arange(min(datospatron), max(datospatron) + 1, 20))
     ax.grid(True, which="both", linestyle="--", linewidth=0.5)
     ax.set_xlabel("PATRON")
