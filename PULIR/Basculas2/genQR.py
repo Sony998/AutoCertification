@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 import json
 import pandas as pd
 import os
-archivo_excel = 'pulido.xlsx'
+archivo_excel = '/home/raven/CODE/pulido.xlsx'
 df = pd.read_excel(archivo_excel, sheet_name='PESA BEBE', header=None)   
 fila_actual = 5
 

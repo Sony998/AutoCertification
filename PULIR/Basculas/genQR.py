@@ -4,11 +4,11 @@ import json
 import pandas as pd
 import os
 
-archivo_excel = 'pulido.xlsx'
+archivo_excel = '/home/raven/CODE/pulido.xlsx'
 df = pd.read_excel(archivo_excel, sheet_name='BASCULAS DE PISO', header=None)   
 fila_actual = 5
 
-output_directory = "PULIR/Basculas/QRS"
+output_directory = "QRS"
 with open("file_urls.json", "r") as file:
     data = json.load(file)
 links = [value for key, value in data.items()]
@@ -28,21 +28,22 @@ for link in links:
     qr_images.append(img.convert("RGBA"))
 
 background_template = Image.open("backqr.png")
-series = [str(df.iat[fila_actual + i * 19 + 1, 7]) for i in range(min(len(certificados), (len(df) - fila_actual) // 19))]
 bg_width, bg_height = background_template.size
 constant_text2 = "7 de noviembre de 2024"
 font = ImageFont.truetype("Arial.ttf", 80)
 font2 = ImageFont.truetype("Arial.ttf", 50)
-fila_actual += 19
 
 for i, certificado in enumerate(certificados):
-    print(f"Certificado: {certificado}, Serie: {series[i]}")
+    serie = str(df.iat[fila_actual + 1, 7])
+    certificado = str(df.iat[fila_actual, 7])
+    print(f"Certificado: {certificado}, Serie: {serie}")
     background = background_template.copy()
     draw = ImageDraw.Draw(background)
     draw.text((130, 580), certificado, font=font, fill="white")
     draw.text((210, 722), constant_text2, font=font2, fill="white")
-    draw.text((200, 815), series[i], font=font2, fill="white")
+    draw.text((200, 815), serie, font=font2, fill="white")
     qr_width, qr_height = qr_images[i].size
     pos = (int((bg_width / 2) + 200), int((bg_height / 2) - 40))
     background.paste(qr_images[i], pos, qr_images[i])
     background.save(f"{output_directory}/{certificado}.png")
+    fila_actual += 19

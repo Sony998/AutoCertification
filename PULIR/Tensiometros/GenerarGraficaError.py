@@ -29,7 +29,7 @@ while fila_actual < len(df):
     ax.set_xlabel('PATRON')
     ax.set_ylabel('ERROR')
     ax.set_title(f'E.S.E CENTRO DE SALUD SANTA LUCIA \n{nombrecertificado}', fontsize=10, fontweight='bold')
-    output_dir = "PULIR/Tensiometros/Graficos/Error"
+    output_dir = "Graficos/Error"
     os.makedirs(output_dir, exist_ok=True)
     plt.savefig(f"{output_dir}/{nombrecertificado}.png", dpi=300, bbox_inches='tight')
     plt.close(fig)

@@ -21,16 +21,16 @@ incertidumbres_expandidas = []
 incertidumbres = []
 notas = []
 fecha = str(df.iat[1, 12])
-img_fondo_path1 = "PULIR/Tensiometros/partesReporte/Pagina1.png"
-img_fondo_path2 = "PULIR/Tensiometros/partesReporte/Pagina2.png"
-img_fondo_path3 = "PULIR/Tensiometros/partesReporte/Pagina3.png"
-img_fondo_path4 = "PULIR/Tensiometros/partesReporte/Pagina4.png"
-output_directory1 = "PULIR/Tensiometros/Reportes/1"
-output_directory2 = "PULIR/Tensiometros/Reportes/2"
-output_directory3 = "PULIR/Tensiometros/Reportes/3"
-output_directory4 = "PULIR/Tensiometros/Reportes/4"
-inferior_directory = "PULIR/Tensiometros/Graficos/Error"
-superior_directory = "PULIR/Tensiometros/Graficos/Desviacion"
+img_fondo_path1 = "partesReporte/Pagina1.png"
+img_fondo_path2 = "partesReporte/Pagina2.png"
+img_fondo_path3 = "partesReporte/Pagina3.png"
+img_fondo_path4 = "partesReporte/Pagina4.png"
+output_directory1 = "Reportes/1"
+output_directory2 = "Reportes/2"
+output_directory3 = "Reportes/3"
+output_directory4 = "Reportes/4"
+inferior_directory = "Graficos/Error"
+superior_directory = "Graficos/Desviacion"
 errorpos = 0
 while True:
     if fila_actual >= len(df):
@@ -158,6 +158,8 @@ def agregar_imagenes_pdf4(fondo_path, output_pdf_path , nota):
     errorpos += 1
  """
 for certficado, error_promedio, desviacion in zip(certificados, errores_list, desviaciones):
+    agregar_imagenes_pdf1(img_fondo_path1, os.path.join(output_directory1, certficado + ".pdf"), certficado)
+    agregar_imagenes_pdf2(img_fondo_path2, os.path.join(output_directory2, certficado + ".pdf"), certficado, incertidumbres[errorpos], incertidumbres_expandidas[errorpos], primeras[errorpos], segundas[errorpos], errores_list[errorpos])
     agregar_imagenes_pdf4(img_fondo_path4, os.path.join(output_directory4, certficado + ".pdf"), notas[errorpos] )
     img_superior_path1 = os.path.join(inferior_directory, certficado + ".png")
     img_superior_path2 = os.path.join(superior_directory, certficado + ".png")

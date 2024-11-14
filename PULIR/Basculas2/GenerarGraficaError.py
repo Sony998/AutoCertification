@@ -4,7 +4,7 @@ import os
 import numpy as np
 
 # Cargar el archivo Excel
-archivo_excel = 'pulido.xlsx'
+archivo_excel = '/home/raven/CODE/pulido.xlsx'
 df = pd.read_excel(archivo_excel, sheet_name='PESA BEBE', header=None)   
 fila_actual = 5
 

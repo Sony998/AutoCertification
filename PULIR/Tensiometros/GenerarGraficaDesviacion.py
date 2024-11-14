@@ -62,7 +62,7 @@ while True:
         fontweight="bold",
     )
     ax.legend()
-    output_dir = "PULIR/Tensiometros/Graficos/Desviacion"
+    output_dir = "Graficos/Desviacion"
     os.makedirs(output_dir, exist_ok=True)
     plt.savefig(f"{output_dir}/{nombrecertificado}.png",dpi=300, bbox_inches='tight')
     fila_actual += 19

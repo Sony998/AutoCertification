@@ -3,7 +3,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 
-archivo_excel = 'pulido.xlsx'
+archivo_excel = '/home/raven/CODE/pulido.xlsx'
 fila_actual = 5
 df = pd.read_excel(archivo_excel, sheet_name="PESA BEBE", header=None)
 

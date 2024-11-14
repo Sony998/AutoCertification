@@ -1,7 +1,7 @@
 import os
 import PyPDF2
 
-folders = ["PULIR/Basculas/Certificados","PULIR/Basculas/Reportes/1", "PULIR/Basculas/Reportes/2", "PULIR/Basculas/Reportes/3", "PULIR/Basculas/Reportes/4","PULIR/Basculas/Reportes/5"]
+folders = ["Certificados","Reportes/1", "Reportes/2", "Reportes/3", "Reportes/4","Reportes/5"]
 
 merger = PyPDF2.PdfMerger()
 
@@ -21,6 +21,6 @@ for filename, paths in pdf_files.items():
         merger = PyPDF2.PdfMerger()
         for path in paths:
             merger.append(path)
-        output_path = os.path.join("PULIR/Basculas/Completos", filename)
+        output_path = os.path.join("Completos/", filename)
         with open(output_path, "wb") as f_out:
             merger.write(f_out)

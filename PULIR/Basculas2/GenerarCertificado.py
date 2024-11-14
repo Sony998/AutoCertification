@@ -4,7 +4,7 @@ from reportlab.lib.utils import ImageReader
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 import pandas as pd
-archivo_excel = 'pulido.xlsx'
+archivo_excel = '/home/raven/CODE/pulido.xlsx'
 df = pd.read_excel(archivo_excel, sheet_name='PESA BEBE', header=None)
 fila_inicial = 5
 def create_pdf(output_path, background_image_path, text_data, nocertificado):
@@ -38,13 +38,13 @@ while True:
         serie = str(df.iat[fila_inicial + 1, 7])
         resolucion = str(df.iat[fila_inicial + 10, 1])   
         print(serie)
-        if str(df.iat[fila_inicial + 4, 2]) == "nan":
+        if str(df.iat[fila_inicial + 3, 2]) == "nan":
             inventario = "N.R"
         else:
-            inventario = str(df.iat[fila_inicial + 4, 2])
+            inventario = str(df.iat[fila_inicial + 3, 2])
         nombreEse = str(df.iat[1, 2])
         direccion = str(df.iat[3, 2])
-        ubicacion = str(df.iat[fila_inicial + 2, 7])
+        ubicacion = str(df.iat[fila_inicial + 3, 7])
         fecha = "7 de noviembre de 2024"
         text_data = {
             "KG": (315, 595),

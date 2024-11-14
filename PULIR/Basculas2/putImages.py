@@ -8,7 +8,7 @@ from reportlab.pdfbase import pdfmetrics
 import pandas as pd
 
 
-archivo_excel = 'pulido.xlsx'   
+archivo_excel = '/home/raven/CODE/pulido.xlsx'   
 df = pd.read_excel(archivo_excel, sheet_name='PESA BEBE', header=None)
 fila_actual = 5
 desviaciones = []

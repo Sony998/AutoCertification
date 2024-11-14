@@ -30,18 +30,19 @@ while True:
     else:
         nocertificado = df.iat[fila_inicial, 7]
         print(nocertificado)
-        output_path = "PULIR/Termometros/Certificados/" + nocertificado + ".pdf"
-        background_image_path = "/home/raven/CODE/PULIR/Termometros/backCertificado.png"
+        output_path = "Certificados/" + nocertificado + ".pdf"
+        background_image_path = "backCertificado.png"
         tipo = str(df.iat[fila_inicial, 0])
         marca = str(df.iat[fila_inicial+1, 2])
         modelo = str(df.iat[fila_inicial + 2, 2])
         serie = str(df.iat[fila_inicial + 1, 7])
         resolucion = str(df.iat[fila_inicial + 12, 1])   
         print(serie)
-        if str(df.iat[fila_inicial + 4, 2]) == "nan":
+        if str(df.iat[fila_inicial + 3, 2]) == "nan":
             inventario = "N.R"
         else:
-            inventario = str(df.iat[fila_inicial + 4, 2])
+            inventario = str(df.iat[fila_inicial + 3, 2])
+            print(inventario)
         nombreEse = str(df.iat[1, 2])
         direccion = str(df.iat[3, 2])
         ubicacion = str(df.iat[fila_inicial + 2, 7])

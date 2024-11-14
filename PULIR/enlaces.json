@@ -1,0 +1,40 @@
+{
+    "links": [
+        {
+            "name": "Arial.ttf",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/Arial.ttf"
+        },
+        {
+            "name": "ArialBold.ttf",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/ArialBold.ttf"
+        },
+        {
+            "name": "Drive.py",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/Drive.py"
+        },
+        {
+            "name": "Google.py",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/Google.py"
+        },
+        {
+            "name": "backqr.png",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/backqr.png"
+        },
+        {
+            "name": "Fraunces.ttf",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/Fraunces.ttf"
+        },
+        {
+            "name": "marcaDeAgua.png",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/marcaDeAgua.png"
+        },
+        {
+            "name": "GraficaError.py",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/gengraficaerror.py"
+        },
+        {
+            "name": "GraficaDesviacion.py",
+            "url": "https://github.com/Sony998/AutoCertification/blob/main/gengraficadesviacion.py"
+        }
+    ]
+}
